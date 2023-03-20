@@ -1,0 +1,377 @@
+body {
+  overflow-x: hidden;
+}
+
+header {
+  top: 0;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(22, 23, 22, 0.692);
+}
+header ul {
+  font-size: 14px;
+  flex: 3;
+}
+header ul li {
+  cursor: pointer;
+}
+header ul li:hover {
+  color: white;
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+}
+header .burger {
+  width: 18px;
+  z-index: 100;
+  position: relative;
+  display: none;
+}
+header .burger span {
+  transition: 0.3s;
+  position: absolute;
+  border-radius: 30px;
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: white;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+header .burger span:nth-child(1) {
+  top: 3px;
+  left: 0;
+}
+header .burger span:nth-child(2) {
+  bottom: 0;
+  left: 0;
+}
+header .burger.active span {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+header .burger.active span:nth-child(1) {
+  transform: translateY(-50%) rotate(45deg);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  -o-transform: translateY(-50%) rotate(45deg);
+}
+header .burger.active span:nth-child(2) {
+  transform: translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg);
+  -o-transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (max-width: 883px) {
+  header {
+    z-index: 1000;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  }
+  header .burger {
+    display: block;
+    cursor: pointer;
+  }
+  header.active {
+    background-color: #171717;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+  header.active i {
+    opacity: 0;
+  }
+  header .container {
+    justify-content: space-between !important;
+  }
+  header.active svg {
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+  }
+  header.active ul {
+    background-color: #333;
+    z-index: 1;
+    overflow-y: auto;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+  header ul {
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transform: translateY(-100%);
+    position: fixed;
+    opacity: 0;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    z-index: -1;
+    padding-bottom: 20px;
+    gap: 0px !important;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+  }
+  header ul.active {
+    opacity: 1;
+  }
+  header ul li {
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0.8;
+    font-weight: bold;
+    padding-left: 40px;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+  }
+  header ul li:hover {
+    opacity: 1;
+  }
+}
+.extra-menu {
+  background-color: rgba(22, 23, 22, 0.692);
+  padding: 3rem;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.extra-menu .container > .row {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.extra-menu .container > .row.active {
+  display: flex;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  position: relative;
+  opacity: 1;
+}
+.extra-menu.active {
+  transition: 0.5s;
+  opacity: 1;
+  z-index: 100;
+  background-color: #171717;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.extra-menu a, .extra-menu p {
+  pointer-events: all;
+  cursor: pointer;
+  padding: 0;
+}
+.extra-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+@media (max-width: 883px) {
+  .extra-menu {
+    overflow-y: auto;
+    margin-top: 3rem;
+    padding-top: 0;
+    padding-left: 0;
+    background-color: #333;
+    transform: translate(100%, -9%);
+    -webkit-transform: translate(100%, -9%);
+    -moz-transform: translate(100%, -9%);
+    -ms-transform: translate(100%, -9%);
+    -o-transform: translate(100%, -9%);
+    padding-left: 2rem;
+  }
+  .extra-menu.active {
+    transform: translate(0%, -9%);
+    -webkit-transform: translate(0%, -9%);
+    -moz-transform: translate(0%, -9%);
+    -ms-transform: translate(0%, -9%);
+    -o-transform: translate(0%, -9%);
+  }
+}
+.header-2 {
+  background-color: #f6f6f6;
+  position: relative;
+  text-align: center;
+  margin-top: 48px;
+}
+.header-2 p {
+  font-size: 15px;
+}
+
+.landing {
+  width: 100%;
+  height: calc(100vh - 48px);
+  background-image: url("../images/landing.png");
+  background-size: cover;
+  background-position: center;
+}
+.landing .text h1 {
+  font-size: 3.5rem;
+  color: black;
+}
+.landing .text p {
+  max-width: 420px;
+  line-height: 1.2;
+  font-size: 28px;
+}
+.landing .text a {
+  text-decoration: none;
+}
+.landing .text a:hover {
+  text-decoration: underline;
+}
+
+.bluring {
+  transition: filter 0.3s;
+  -webkit-transition: filter 0.3s;
+  -moz-transition: filter 0.3s;
+  -ms-transition: filter 0.3s;
+  -o-transition: filter 0.3s;
+}
+.bluring.active {
+  filter: blur(1rem);
+  -webkit-filter: blur(1rem);
+}
+
+.section-2 {
+  overflow: hidden;
+}
+.section-2 h1 {
+  font-size: 3.5rem;
+}
+.section-2 p {
+  font-size: 2rem;
+}
+.section-2 .links {
+  position: relative;
+  z-index: 2;
+}
+.section-2 img {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 883px) {
+  .section-2 img {
+    max-width: 200px;
+    margin-top: 3rem;
+  }
+}
+.section-3 p {
+  font-size: 1rem;
+}
+.section-3 span {
+  letter-spacing: 1px;
+  color: #c52026;
+  font-size: 18px;
+}
+.section-3 .ipad {
+  max-width: 260px;
+  margin-top: 20px;
+}
+
+.macbook-2 > div {
+  background-color: #f5f5f7;
+}
+.macbook-2 > div h1 a {
+  background-color: #0f0;
+}
+
+.section-4 {
+  background-color: #f5f5f7;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6e6e73;
+}
+.section-4 span {
+  text-decoration: underline;
+  color: #59595c;
+}
+.section-4 hr {
+  color: #4e4e50;
+}
+.section-4 .row p {
+  color: #4e4e50;
+}
+
+.small-r {
+  font-size: 12.5px;
+}
+
+.last li:not(:first-child) {
+  border-left: 1px solid #919192;
+  padding-top: 0;
+  padding-bottom: 0;
+}/*# sourceMappingURL=style.css.map */
